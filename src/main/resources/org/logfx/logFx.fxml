@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--<?import org.logfx.LogViewUtil?>-->
+<?import javafx.stage.Stage?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.image.Image?>
+<Stage title="LogFX" maximized="true" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+       fx:controller="org.logfx.LogFxController">
+    <icons>
+        <Image url="@images/logfx-1.png"/>
+        <Image url="@images/logfx-2.png"/>
+        <Image url="@images/logfx-3.png"/>
+    </icons>
+    <scene>
+        <Scene>
+            <VBox fx:id="rootVbox" stylesheets="@main.css">
+                <children>
+                    <TitledPane animated="false" text="Log Files">
+                        <content>
+                            <VBox prefHeight="200.0">
+                                <children>
+                                    <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0">
+                                        <children>
+                                            <CheckBox fx:id="log1CheckBox" mnemonicParsing="false" text="">
+                                                <tooltip>
+                                                    <Tooltip text="include this file"/>
+                                                </tooltip>
+                                                <HBox.margin>
+                                                    <Insets right="8.0"/>
+                                                </HBox.margin>
+                                            </CheckBox>
+                                            <TextField fx:id="log1PathTextField" maxWidth="1.7976931348623157E308"
+                                                       text="d:\\log1.txt" HBox.hgrow="ALWAYS">
+                                                <HBox.margin>
+                                                    <Insets right="10.0"/>
+                                                </HBox.margin>
+                                            </TextField>
+                                        </children>
+                                    </HBox>
+
+                                    <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0">
+                                        <children>
+                                            <CheckBox fx:id="log2CheckBox" mnemonicParsing="false" text="">
+                                                <tooltip>
+                                                    <Tooltip text="include this file"/>
+                                                </tooltip>
+
+                                                <HBox.margin>
+                                                    <Insets right="8.0"/>
+                                                </HBox.margin>
+                                            </CheckBox>
+                                            <TextField fx:id="log2PathTextField" maxWidth="1.7976931348623157E308"
+                                                       text="d:\\log2.txt" HBox.hgrow="ALWAYS">
+                                                <HBox.margin>
+                                                    <Insets right="10.0"/>
+                                                </HBox.margin>
+                                            </TextField>
+                                        </children>
+                                    </HBox>
+
+
+                                    <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0">
+                                        <children>
+                                            <CheckBox fx:id="log3CheckBox" mnemonicParsing="false" text="">
+                                                <tooltip>
+                                                    <Tooltip text="include this file"/>
+                                                </tooltip>
+
+                                                <HBox.margin>
+                                                    <Insets right="8.0"/>
+                                                </HBox.margin>
+                                            </CheckBox>
+                                            <TextField fx:id="log3PathTextField" maxWidth="1.7976931348623157E308"
+                                                       text="d:\\log3.txt" HBox.hgrow="ALWAYS">
+                                                <HBox.margin>
+                                                    <Insets right="10.0"/>
+                                                </HBox.margin>
+                                            </TextField>
+                                        </children>
+                                    </HBox>
+
+
+                                    <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0">
+                                        <children>
+                                            <CheckBox fx:id="log4CheckBox" mnemonicParsing="false" text="">
+                                                <tooltip>
+                                                    <Tooltip text="include this file"/>
+                                                </tooltip>
+
+                                                <HBox.margin>
+                                                    <Insets right="8.0"/>
+                                                </HBox.margin>
+                                            </CheckBox>
+                                            <TextField fx:id="log4PathTextField" maxWidth="1.7976931348623157E308"
+                                                       text="d:\\log4.txt" HBox.hgrow="ALWAYS">
+                                                <HBox.margin>
+                                                    <Insets right="10.0"/>
+                                                </HBox.margin>
+                                            </TextField>
+                                        </children>
+                                    </HBox>
+
+                                </children>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <TitledPane animated="false" prefWidth="508.0" text="Filters">
+                        <content>
+                            <VBox prefWidth="100.0">
+                                <children>
+                                    <HBox prefHeight="30.0" prefWidth="200.0">
+                                        <children>
+                                            <Label text="Include Key Words:">
+                                                <HBox.margin>
+                                                    <Insets right="5.0"/>
+                                                </HBox.margin>
+                                            </Label>
+                                            <TextField fx:id="includeWordsTextField" onAction="#showLogs"
+                                                       promptText="keyword1  &quot;multiple workds keywords&quot;   keyword3"
+                                                       text="" HBox.hgrow="ALWAYS"/>
+                                            <ToggleButton fx:id="includeCaseSensitiveToggleButton"
+                                                          mnemonicParsing="false" onAction="#showLogs" text="">
+                                                <tooltip>
+                                                    <Tooltip text="case sensitive"/>
+                                                </tooltip>
+                                                <HBox.margin>
+                                                    <Insets left="8.0"/>
+                                                </HBox.margin>
+                                            </ToggleButton>
+                                        </children>
+                                    </HBox>
+
+                                    <HBox prefHeight="30.0" prefWidth="200.0">
+                                        <children>
+                                            <Label text="Exclude Key Words:">
+                                                <HBox.margin>
+                                                    <Insets right="5.0"/>
+                                                </HBox.margin>
+                                            </Label>
+                                            <TextField fx:id="excludeWordsTextField" onAction="#showLogs"
+                                                       promptText="keyword1  &quot;multiple workds keywords&quot;   keyword3"
+                                                       text="" HBox.hgrow="ALWAYS"/>
+                                            <ToggleButton fx:id="excludeCaseSensitiveToggleButton"
+                                                          mnemonicParsing="false" onAction="#showLogs" text="">
+                                                <tooltip>
+                                                    <Tooltip text="case sensitive"/>
+                                                </tooltip>
+
+                                                <HBox.margin>
+                                                    <Insets left="8.0"/>
+                                                </HBox.margin>
+                                            </ToggleButton>
+                                        </children>
+                                    </HBox>
+
+                                    <HBox prefHeight="30.0" prefWidth="200.0">
+                                        <children>
+                                            <Label text="Time Range:">
+                                                <HBox.margin>
+                                                    <Insets right="42.0"/>
+                                                </HBox.margin>
+                                            </Label>
+
+                                            <TextField fx:id="fromTimeTextField" onAction="#showLogs" prefWidth="90"
+                                                       promptText="10:11:22.538" text="">
+                                                <tooltip>
+                                                    <Tooltip text="time format: hh:mm:ss.SSS"/>
+                                                </tooltip>
+                                            </TextField>
+                                            <Label text="~">
+                                                <HBox.margin>
+                                                    <Insets left="5" right="5.0"/>
+                                                </HBox.margin>
+                                            </Label>
+                                            <TextField fx:id="toTimeTextField" onAction="#showLogs" prefWidth="90"
+                                                       promptText="16:22.33.178" text="">
+                                                <tooltip>
+                                                    <Tooltip text="time format: hh:mm:ss.SSS"/>
+                                                </tooltip>
+                                            </TextField>
+
+                                        </children>
+                                    </HBox>
+
+
+                                </children>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <HBox maxWidth="1.7976931348623157E308" style="-fx-border-color: red;">
+                        <children>
+                            <Button fx:id="refreshLogButton" alignment="CENTER_RIGHT" onAction="#refreshLog"
+                                    text="Refresh Log Files">
+                                <tooltip>
+                                    <Tooltip text="refresh the logs file"/>
+                                </tooltip>
+                                <HBox.margin>
+                                    <Insets left="10.0" right="8"/>
+                                </HBox.margin>
+                            </Button>
+
+                            <Button fx:id="showLogsButton" alignment="CENTER_RIGHT" onAction="#showLogs"
+                                    text="Show Logs">
+                                <tooltip>
+                                    <Tooltip
+                                            text="Show the logs. It can be triggered by pressing Enter on the filter key words text fields, too."/>
+                                </tooltip>
+                                <HBox.margin>
+                                    <Insets left="10.0" right="8"/>
+                                </HBox.margin>
+                            </Button>
+                        </children>
+                        <padding>
+                            <Insets bottom="10.0" top="7.0"/>
+                        </padding>
+                    </HBox>
+                    <ListView fx:id="logView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
+
+                    <!--        <LogView>-->
+                    <!--        </LogView>-->
+
+
+                    <BorderPane maxHeight="20" maxWidth="1.7976931348623157E308">
+                        <left>
+                            <Label fx:id="statusLabel" style="-fx-border-style: solid; -fx-border-width: 1  0 0 0;"
+                                   text="Welcome to LogFX !" BorderPane.alignment="CENTER">
+                                <padding>
+                                    <Insets bottom="6.0" top="6.0"/>
+                                </padding>
+                            </Label>
+                        </left>
+
+                        <right>
+                            <Hyperlink fx:id="contactHyperLink" text="Contact Author" BorderPane.alignment="CENTER">
+                                <tooltip>
+                                    <Tooltip text="send mail to the author"/>
+                                </tooltip>
+
+                            </Hyperlink>
+                        </right>
+                    </BorderPane>
+
+                </children>
+                <padding>
+                    <Insets left="8.0" right="8.0"/>
+                </padding>
+            </VBox>
+
+        </Scene>
+    </scene>
+</Stage>

@@ -1,0 +1,56 @@
+.text-field:error {
+    -fx-text-box-border: red ;
+    -fx-focus-color: red ;
+}
+
+.toggle-button  {
+    -fx-min-width: 25px;
+    -fx-background-image: url("case_sensitive.png");
+
+    -fx-background-size: 100% 100%;
+    /*-fx-background-repeat: no-repeat;*/
+    -fx-background-position: center;
+}
+
+.toggle-button:selected {
+    /*-fx-base: aqua;*/
+    -fx-base: CornflowerBlue;
+}
+
+.log-view .list-cell {
+    /*-fx-cell-size : 28;*/
+    -fx-label-padding: 0 0 0 0;
+    -fx-padding: 0 0 0 0;
+    -fx-border-insets: 0px;
+    -fx-background-insets: 0px;
+
+    -fx-background-color: null; // removes alternating list gray cells.
+}
+
+.log-view .list-cell:trace {
+    -fx-text-fill: gray;
+}
+
+.log-view .list-cell:debug {
+    -fx-text-fill: dodgerBlue;
+}
+
+.log-view .list-cell:info {
+    -fx-text-fill: green;
+}
+
+.log-view .list-cell:warn {
+    -fx-text-fill: purple;
+}
+
+.log-view .list-cell:error {
+    -fx-text-fill: red;
+}
+
+.log-view .list-cell:fatal {
+    -fx-text-fill: red;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: lightBlue;
+}
