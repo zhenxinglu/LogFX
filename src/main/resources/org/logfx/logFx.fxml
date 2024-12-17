@@ -4,7 +4,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<!--<?import org.logfx.LogViewUtil?>-->
 <?import javafx.stage.Stage?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.image.Image?>
@@ -221,10 +220,6 @@
                         </padding>
                     </HBox>
                     <ListView fx:id="logView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
-
-                    <!--        <LogView>-->
-                    <!--        </LogView>-->
-
 
                     <BorderPane maxHeight="20" maxWidth="1.7976931348623157E308">
                         <left>

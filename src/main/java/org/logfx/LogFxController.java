@@ -4,8 +4,8 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.Cursor;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import org.logfx.model.AbstractLogFile;
@@ -259,17 +259,6 @@ public class LogFxController {
 
         includeWordsTextField.setText(props.getProperty(includeWordsTextField.getId(), ""));
         excludeWordsTextField.setText(props.getProperty(excludeWordsTextField.getId(), ""));
-    }
-
-    public static void main(String[] args) {
-        Pattern pattern = Pattern.compile("(\\d{2}):(\\d{2}):(\\d{2})\\.\\d{3}");
-        Matcher mattcher = pattern.matcher("10:11:22.522");
-        System.out.println(mattcher.matches());
-
-        System.out.println(mattcher.group(0));
-        System.out.println(mattcher.group(1));
-        System.out.println(mattcher.group(2));
-        System.out.println(mattcher.matches());
     }
 
     @FXML

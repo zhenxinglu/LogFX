@@ -6,9 +6,13 @@
 javaFXImageDir=javafxImage
 javaFXModules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.web,javafx.media
 
+#PATH_TO_FX_MODS=/d/software/dev/javafx-jmods-23.0.1
+#Pease note that 'PATH_TO_FX_MODS' is the PATH to the JavaFX mods, not JavaFX SDK libs!
+
 if [ -z "$PATH_TO_FX_MODS" ]
 then
-  echo "Environment variable \$PATH_TO_FX_MODS is not set"
+  echo "Environment variable `PATH_TO_FX_MODS` is not set"
+  exit
 fi
 
 if [ ! -d $javaFXImageDir ]
@@ -17,9 +21,9 @@ then
   jlink --no-header-files --no-man-pages --strip-debug --output $javaFXImageDir --module-path $PATH_TO_FX_MODS --add-modules $javaFXModules
 fi
 
-#mvn package
+mvn package
 
-appInfo="-n LogFX --app-version 1.0  --vendor zhenxing.lu"
+appInfo="-n LogFX --app-version 1.1  --vendor zhenxing.lu"
 description="A tool for viewing multiple logs from multiple sites"
 copyright="Copyright 2021, All rights reserved"
 iconPath=target/classes/logfx.ico

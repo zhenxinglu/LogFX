@@ -97,16 +97,16 @@ LogFX is a JavaFX application. It ues the scp function of ant-jsch to copy the f
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Log4j is built with Maven. Because it builds the custom JRE as well so the local JavaFX 16 modues must 
+Log4j is built with Maven. Because it builds the custom JRE as well so the local JavaFX 23 modues must 
 be installed and the relevant environment values should be correctly setup.
 
 ### Prerequisites
-* install [JavaFX 16+ modules](https://gluonhq.com/products/javafx) and set environment variable PATH_TO_FX_MODS.
+* install [JavaFX 23+ modules](https://gluonhq.com/products/javafx) and set environment variable PATH_TO_FX_MODS.
   ```sh
   PATH_TO_FX_MODS=/path/to/JavaFX/modules
   ```
 * install Maven
-* install JDK 16+
+* install JDK 23+
 
 ### Build the installer
 1. cd <project_home_dir>

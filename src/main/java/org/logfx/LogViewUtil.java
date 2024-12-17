@@ -23,8 +23,6 @@ public class LogViewUtil {
     private static double fontSize = 15;
     private static Label statuslabel;
 
-//    private final ObservableList<LogRecord> logItems = FXCollections.observableArrayList();
-
     public static void init(ListView<LogRecord> listView, Label labelStatus) {
         statuslabel = labelStatus;
         listView.getStyleClass().add("log-view");
@@ -60,7 +58,6 @@ public class LogViewUtil {
 
     private static EventHandler<ScrollEvent> createScrollEvent(ListView<LogRecord> listView) {
         return event -> {
-//            System.out.println(event.getEventType());
             if (!event.isControlDown()) {
                 return;
             }
@@ -90,7 +87,6 @@ public class LogViewUtil {
                 }
 
                 String cssString = String.format("-fx-font-size: %f;",  fontSize);
-//                System.out.println(cssString);
                 setStyle(cssString);
 
                 setText(item.getMessage());
@@ -107,31 +103,18 @@ public class LogViewUtil {
         };
     }
 
-    private static void pseudoClassStateChangedHelper(ListCell<LogRecord> listCell, Level level) {
-        PseudoClass pseudoClass;
-        switch (level) {
-            case TRACE:
-                pseudoClass = trace;
-            case DEBUG:
-                pseudoClass = debug;
-                break;
-            case INFO:
-                pseudoClass = info;
-                break;
-            case WARN:
-                pseudoClass = warn;
-                break;
-            case ERROR:
-                pseudoClass = error;
-                break;
-            case FATAL:
-                pseudoClass = fatal;
-            default:
-                pseudoClass = debug;
-        }
+private static void pseudoClassStateChangedHelper(ListCell<LogRecord> listCell, Level level) {
+    PseudoClass pseudoClass = switch (level) {
+        case TRACE -> trace;
+        case INFO -> info;
+        case WARN -> warn;
+        case ERROR -> error;
+        case FATAL -> fatal;
+        default -> debug;
+    };
 
-        listCell.pseudoClassStateChanged(pseudoClass, true);
-    }
+    listCell.pseudoClassStateChanged(pseudoClass, true);
+}
 
 
     private static void changeFontSize(ListView<LogRecord> listView, ScrollEvent event) {
